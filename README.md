@@ -2,6 +2,8 @@
 
 Android app for tracking Wii Fit Balance Board data.
 
+Repo: https://github.com/Nate27624/wii-fit-app
+
 ## Requirements
 
 - Android Studio Hedgehog or newer
