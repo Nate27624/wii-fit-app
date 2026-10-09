@@ -1,19 +1,20 @@
-# Wii Fit App
+# Weight Tracker
 
-Android app for tracking Wii Fit Balance Board data.
-
-Repo: https://github.com/Nate27624/wii-fit-app
+Native iOS app for recording body weight in pounds and plotting entries over time.
 
 ## Requirements
 
-- Android Studio Hedgehog or newer
-- JDK 17
-- Android SDK 34
+- Xcode 26.2 or newer
+- XcodeGen
 
-## Run
+## Generate
 
 ```bash
-./gradlew assembleDebug
+xcodegen generate
 ```
 
-Then install `app/build/outputs/apk/debug/app-debug.apk` on a device or emulator.
+## Test
+
+```bash
+xcodebuild test -project WeightTracker.xcodeproj -scheme WeightTracker -destination 'platform=iOS Simulator,name=iPhone 17'
+```

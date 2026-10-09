@@ -1,23 +1,18 @@
-# Android/Gradle
-.gradle/
+# Xcode
+DerivedData/
 build/
-*/build/
+*.xcuserstate
+*.xcuserdata/
+xcuserdata/
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
 
-# Local machine config
-local.properties
+# Swift Package Manager
+.build/
 
-# IDE
-.idea/
-*.iml
-
-# Kotlin/Java tooling
-.kotlin/
-captures/
-.externalNativeBuild/
-.cxx/
+# Conductor scratch space
+.context/
 
 # OS files
 .DS_Store
-
-# Diagnostics
-*.hprof
