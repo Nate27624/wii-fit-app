@@ -5,8 +5,8 @@ struct ContentView: View {
 
     @State private var weightText = ""
     @State private var selectedEntryID: WeightEntry.ID?
+    @State private var goalProjection = WeightGoalProjection()
     @FocusState private var weightFieldFocused: Bool
-    private let goalProjection = WeightGoalProjection()
 
     private var selectedEntry: WeightEntry? {
         guard let selectedEntryID else { return nil }

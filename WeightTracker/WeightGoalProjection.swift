@@ -39,4 +39,12 @@ struct WeightGoalProjection: Equatable {
             ProjectedWeightPoint(weightLbs: targetWeightLbs, recordedAt: targetDate)
         ]
     }
+
+    func point(at date: Date) -> ProjectedWeightPoint {
+        let duration = max(targetDate.timeIntervalSince(startDate), 1)
+        let progress = date.timeIntervalSince(startDate) / duration
+        let weight = currentWeightLbs + (targetWeightLbs - currentWeightLbs) * progress
+
+        return ProjectedWeightPoint(weightLbs: weight, recordedAt: date)
+    }
 }

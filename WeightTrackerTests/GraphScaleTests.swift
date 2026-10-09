@@ -89,6 +89,16 @@ final class GraphScaleTests: XCTestCase {
         XCTAssertEqual(projection.targetDate.timeIntervalSince(expectedTarget), 0, accuracy: 0.001)
     }
 
+    func testGoalProjectionExtendsBeforeStartDate() {
+        let now = Date(timeIntervalSinceReferenceDate: 1_000)
+        let projection = WeightGoalProjection(startDate: now)
+        let oneWeekEarlier = now.addingTimeInterval(-7 * 24 * 60 * 60)
+        let projectedPoint = projection.point(at: oneWeekEarlier)
+
+        XCTAssertEqual(projectedPoint.recordedAt, oneWeekEarlier)
+        XCTAssertEqual(projectedPoint.weightLbs, 168.4, accuracy: 0.001)
+    }
+
     func testHitTestingSelectsNearestNodeWithinRadius() {
         let first = WeightEntry(weightLbs: 210, recordedAt: Date(timeIntervalSinceReferenceDate: 1_000))
         let second = WeightEntry(weightLbs: 205, recordedAt: Date(timeIntervalSinceReferenceDate: 2_000))

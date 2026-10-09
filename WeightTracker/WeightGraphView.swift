@@ -112,7 +112,8 @@ struct WeightGraphView: View {
     private func projectionLayer(scale: GraphScale, plotRect: CGRect) -> some View {
         ZStack {
             let points = projection.points
-            let start = scale.point(for: points[0], in: plotRect)
+            let leftEdgeProjectionPoint = projection.point(at: scale.timeLower)
+            let start = scale.point(for: leftEdgeProjectionPoint, in: plotRect)
             let target = scale.point(for: points[1], in: plotRect)
 
             Path { path in
